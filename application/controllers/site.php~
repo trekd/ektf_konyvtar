@@ -1,0 +1,94 @@
+<?php
+
+#doc
+#	classname:	Site
+#	scope:		PUBLIC
+#
+#/doc
+
+class Site extends Controller
+{
+	#	Constructor
+	function __construct ()
+	{
+		parent::Controller();
+	}
+	###
+
+	#doc
+	#	functionname:	index
+	#	scope:		public
+	#	parm:		
+	#	return:		void
+	#
+	#/doc
+	
+	function index()
+	{
+		# code...
+		$data['title'] = $this->lang->line('title_login');
+		$data['javascript'] = array('jquery');
+		$data['css'] = array('entry');
+
+		$this->load->view('head_view', $data);
+		$this->load->view('entry/login_form_view', $data);
+		$this->load->view('foot_view', $data);
+	}
+	###
+
+	#doc
+	#	functionname:	lost_my_password
+	#	scope:		public
+	#	parm:		
+	#	return:		void
+	#
+	#/doc
+	
+	function lost_my_password()
+	{
+		# code...
+		$data['title'] = $this->lang->line('title_lost_my_password');
+		$data['javascript'] = array('jquery');
+		$data['css'] = array('entry');
+
+		$this->load->view('head_view', $data);
+		$this->load->view('entry/lost_my_password_view', $data);
+		$this->load->view('foot_view', $data);
+	}
+	###
+
+	#doc
+	#	functionname:	call_json
+	#	scope:		public
+	#	parm:		
+	#	return:		void
+	#
+	#/doc
+	
+	function call_json($action = '')
+	{
+		# code...
+		
+
+		$this->_json();
+	}
+	###
+
+	#doc
+	#	functionname:	json
+	#	scope:		private
+	#	parm:		array
+	#	return:		void
+	#
+	#/doc
+	
+	function _json($json = array())
+	{
+		# code...
+		$data['json'] = $json;
+		$this->load->view('json', $data);
+		
+	}
+	###
+}
+###

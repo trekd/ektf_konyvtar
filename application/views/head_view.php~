@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<title>ektf.online könyvtár | {title}</title>
+
+{javascript}	<script src="{base_url}js/{0}.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+{/javascript}
+	<style type="text/css" media="screen">
+	/* <![CDATA[ */
+
+{css}	@import "{base_url}css/{filename}.css";
+{/css}
+	/* ]]> */
+	</style>
+</head>
+<body>
+	<div id="login">
+	<div id="logo">
+		<h1>ektf.online könyvtár</h1>
+		<h5>matematika én informatika tanszék</h5>
+	</div>
+	
+		<div id="body">
+			<div id="book_container"><div id="book"></div></div>
+		</div>
+		<div id="foot">
+			created by <a href="http://eriksulymosi.tk/" class="blue">eriksulymosi</a> | hosted by <a href="http://aries.ektf.hu" class="blue">aries</a>
+		</div>
+	</div>
+</body>
+</html>

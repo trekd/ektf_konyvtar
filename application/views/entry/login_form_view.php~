@@ -1,0 +1,4 @@
+<?php
+
+$this->form->form_open('user/login');
+$this->form->form_input();
