@@ -3,17 +3,43 @@
 <html>
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<title>ektf.online könyvtár | {title}</title>
+	<title>ektf.online könyvtár<?php if (isset($title) && $title != ''): echo ' | '; endif; ?><?php echo $title; ?></title>
+<?php
+if (isset($javascript) && count($javascript) > 0):
+	foreach ($javascript as $filename):
+		if ($filename == 'login'):
 
-{javascript}	<script src="{base_url}js/{0}.js" type="text/javascript" language="javascript" charset="utf-8"></script>
-{/javascript}
+?>
+	<script type="text/javascript" language="javascript" charset="utf-8">
+	// <![CDATA[
+<?php $this->load->file('js/login.js'); ?>
+	// ]]>
+	</script>
+<?php else: ?>
+	<script src="<?php echo $this->config->item('base_url'); ?>js/<?php echo $filename; ?>.js" type="text/javascript" language="javascript" charset="utf-8"></script>
+<?php
+		endif;
+	endforeach;
+endif;
+?>
+<?php
+if (isset($css) && count($css) > 0):
+?>
 	<style type="text/css" media="screen">
 	/* <![CDATA[ */
+<?php
+	foreach ($css as $filename):
 
-{css}	@import "{base_url}css/{filename}.css";
-{/css}
+?>
+	@import "<?php echo $this->config->item('base_url'); ?>css/<?php echo $filename; ?>.css";
+<?php
+	endforeach;
+?>
 	/* ]]> */
 	</style>
+<?php
+endif;
+?>
 </head>
 <body>
 	<div id="login">
@@ -23,11 +49,3 @@
 	</div>
 	
 		<div id="body">
-			<div id="book_container"><div id="book"></div></div>
-		</div>
-		<div id="foot">
-			created by <a href="http://eriksulymosi.tk/" class="blue">eriksulymosi</a> | hosted by <a href="http://aries.ektf.hu" class="blue">aries</a>
-		</div>
-	</div>
-</body>
-</html>

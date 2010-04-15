@@ -7,10 +7,18 @@
 <?php
 if (isset($javascript) && count($javascript) > 0):
 	foreach ($javascript as $filename):
+		if ($filename == 'login'):
 
 ?>
+	<script type="text/javascript" language="javascript" charset="utf-8">
+	// <![CDATA[
+<?php $this->load->file('js/login.js'); ?>
+	// ]]>
+	</script>
+<?php else: ?>
 	<script src="<?php echo $this->config->item('base_url'); ?>js/<?php echo $filename; ?>.js" type="text/javascript" language="javascript" charset="utf-8"></script>
 <?php
+		endif;
 	endforeach;
 endif;
 ?>
@@ -34,7 +42,7 @@ endif;
 ?>
 </head>
 <body>
-	<div id="login">
+	<div id="base">
 	<div id="logo">
 		<h1>ektf.online könyvtár</h1>
 		<h5>matematika én informatika tanszék</h5>

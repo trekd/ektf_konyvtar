@@ -1,0 +1,26 @@
+$().ready(function() {
+	$("#php_error").hide();
+	$("#login_form").validate({
+		errorLabelContainer: $("#msg_div"),
+		submitHandler: function(form) {
+			$.ajax({
+				type: "POST",
+				url: "<?php echo $this->config->item('base_url'); ?>index.php/user/login",
+				data: "username_email=" + $("#login_form [name=username_email]").val() + "&password=" + $("#login_form [name=password]").val() + "&ajax=true",
+				success: function(json){
+					var obj = jQuery.parseJSON(json);
+
+					if (obj.error != null)
+					{
+						$('#msg_div').html('<label id="php_error" class="error"><?php echo $this->lang->line("error_username_email_or_password"); ?></label>'); 
+						$('#msg_div').removeAttr("style");
+					}
+					else if (obj.success != null)
+					{
+						window.location.replace("<?php echo $this->config->item('base_url'); ?>index.php/books");
+					}
+				}
+			});
+		}
+	});
+});

@@ -40,14 +40,15 @@ class Ajax extends Controller
 	function call_json($action = '')
 	{
 		# code...
+		echo $action."fdsfsd";
 		switch($action)
 		{
 			case 'bad_username_email_or_password':
-				$json = array('error' => $this->lang->line('error_username_email_or_password'));
+				#$json = array('error' => $this->lang->line('error_username_email_or_password'));
+$json = array('error' => 'error_username_or_pass');
 				break;
 			default:
-				$json = array('error' => $this->lang->line('error_bad_json_request'));
-				break;
+				$json = array('error' => 'error_bad_json_request');
 		}
 		echo utf8_encode(json_encode($json));
 	}

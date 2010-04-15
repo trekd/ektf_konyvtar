@@ -4,6 +4,9 @@
 #
 #/doc
 
-$lang['title_login'] = 'belépés';
+$lang['error_bad_json_request'] = 'Hibás json kérés.';
+$lang['error_required_username_email'] = 'A felhasználónév vagy e-mail cím megadása kötelező.';
+$lang['error_required_password'] = 'A jelszó megadása kötelező.';
+$lang['error_username_email_or_password'] = 'Hibás felhasználónév/e-mail cím vagy jelszó.';
 
 ###

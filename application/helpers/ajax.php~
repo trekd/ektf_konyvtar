@@ -43,7 +43,12 @@ class Ajax extends Controller
 	function call_json($action = '')
 	{
 		# code...
-		
+		switch($action)
+		{
+			case 'bad_username_email_or_password':
+				$json = array('error' => $this->lang->line());
+				break;
+		}
 		
 		$this->_json($json);
 	}

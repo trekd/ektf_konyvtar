@@ -97,7 +97,7 @@ class Login
 	{
 		$this->CI =& get_instance();
 
-		if($username_email = '' OR $password = '')
+		if($username_email == '' OR $password == '')
 			return false;
 
 
@@ -116,7 +116,7 @@ class Login
 		{
 			$user_data = $query->row_array(); 
 
-			if(md5($pasword) != $user_data['password'])
+			if(md5($password) != $user_data['password'])
 				return false;
 
 			//Destroy old session
@@ -125,7 +125,7 @@ class Login
 			//Create a fresh, brand new session
 			$this->CI->session->sess_create();
 
-			$this->CI->db->simple_query('UPDATE ' . $this->user_table  . ' SET last_login_date = NOW() WHERE username = ' . $user_data['username']);
+			$this->CI->db->simple_query('UPDATE ' . $this->user_table  . ' SET last_login_date = NOW(), last_login_ip = "'. $_SERVER['REMOTE_ADDR'] .'" WHERE username = "' . $user_data['username'].'"');
 
 			//Set session data
 			unset($user_data['password']);
@@ -177,7 +177,7 @@ class Login
 		        return false;
 
 		    // Insert new password into table
-		    $this->CI->db->simple_query('UPDATE ' . $this->user_table  . ' SET pasword = ' . md5($user_newpass) . ' WHERE username = ' . $user_data['username']);
+		    $this->CI->db->simple_query('UPDATE ' . $this->user_table  . ' SET pasword = ' . md5($user_newpass) . ' WHERE username = "' . $user_data['username'].'"');
 
 		    return true;
 		} 
@@ -192,12 +192,12 @@ class Login
 	 * Logout user
 	 *
 	 * @access	public
-	 * @return	void
+	 * @return	bool
 	 */
 	function logout() {
-		$this->CI =& get_instance();		
-
+		$this->CI =& get_instance();
 		$this->CI->session->sess_destroy();
+		return true;
 	}
 
 	/**

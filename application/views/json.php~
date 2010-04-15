@@ -1,2 +1,0 @@
-<?php
-	echo utf8_encode(json_encode($json));

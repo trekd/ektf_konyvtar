@@ -15,7 +15,7 @@ body
 	padding: 0;
 }
 
-a
+a.blue
 {
 	color: #258dcf;
 	font-size: 10px;
@@ -28,7 +28,7 @@ a
 /********************************/
 /****** BodyBox *****************/
 
-#login
+#base
 {
 	width: 400px;
 	margin: 150px auto 0 auto;
@@ -37,6 +37,7 @@ a
 #body
 {
 	background-color: #f5f5ef;
+	-o-border-radius: 5px;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	padding: 40px 75px;
@@ -99,3 +100,133 @@ div#book
 {
 	font-size: 9px;
 }
+
+/********************************/
+/****** Input *******************/
+
+input[type=text], input[type=password]
+{
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 16px;
+	color: #666;
+	display: block;
+	margin: 0 0 20px 0;
+	width: 218px;
+	border: 1px solid #dcdcd7;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 5px 15px;
+}
+
+input[type=submit]
+{
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 16px;
+	color: #fff;
+	margin: 20px 0 0 0;
+	border: 0px;
+	background-color: #258dcf;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 5px 15px;
+	cursor: pointer;
+	display:block;
+	
+}
+
+input[type=submit]:hover
+{
+	background-color: #3fa1df;
+}
+
+
+input[type=text].captcha
+{
+	font-family: Georgia, serif;
+	font-style: italic;
+	font-size: 16px;
+	color: #666;
+	display: block;
+	float: right;
+	margin: -6px 0 20px 0;
+	width: 95px;
+	border: 1px solid #dcdcd7;
+	background-color: #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	padding: 5px 15px;
+}
+
+img.captcha
+{
+	width: 85px;
+	border: 1px solid #dcdcd7;
+	background-color: #fff;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	float: left;
+	padding: 4px 5px;
+	margin: -6px 26px 20px 0;
+	
+}
+
+/********************************/
+/****** Link ********************/
+
+a
+{
+	color: #258dcf;
+	font-size: 10px;
+	font-family: Verdana, sans-serif;
+	text-decoration: none;
+	padding-bottom: 1px;
+	border-bottom: 1px dotted #258dcf;
+}
+
+/********************************/
+/****** MsgBox ******************/
+
+#msg_div
+{
+	margin-bottom: 10px;
+}
+
+#msg_div > label
+{
+	display: block;
+}
+
+#msg_div .error
+{
+	color:red;
+}
+
+#msg_div #php_error
+{
+	margin-bottom: 5px;
+}
+
+/********************************/
+/****** Label *******************/
+
+form > label
+{ 
+
+	font-family: Georgia, serif;
+	font-style: italic;
+	cursor: text;
+	font-size: 16px;
+	color: #aaa;
+	position: relative;
+	padding: 0px 17px;
+}
+ 
+label.focus { color: #ccc; }
+label.has-text { visibility:hidden; display:block; }
+label.inlined + input { margin-top: -24px; }
